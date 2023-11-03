@@ -39,11 +39,8 @@ init.tools:
 	sudo apt update
 	sudo apt-get install -y percona-toolkit unzip
 	asdf plugin add alp
-	asdf plugin add golang
 	asdf install alp `asdf list-all alp | tail -1`
 	asdf global alp `asdf list-all alp | tail -1`
-	asdf install golang `asdf list-all golang | tail -1`
-	asdf global golang `asdf list-all golang | tail -1`
 
 survey.slowlog:
 	sudo pt-query-digest /var/log/mysql/mysql-slow.log | \
