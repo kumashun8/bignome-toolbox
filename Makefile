@@ -1,13 +1,17 @@
 # from kumashun8/isucon-toolbox
 #
-restart: log.rotate restart-mysql restart-app restart-nginx # set build target on top
+SERVICE_NAME = sample.service # systemctl status $(SERVICE_NAME)
+BUILD_TARGET = build
+ALP_REGEXP = '/api/sample/[0-9a-z\-]+'
+
+restart: $(BUILD_TARGET) log.rotate restart-mysql restart-app restart-nginx # set build target on top
 init: init.config init.asdf init.tools log.init
 survey: survey.slowlog survey.nginx
 
 restart-app:
 	rm -f /tmp/webapp.sock
-	sudo systemctl restart isuports.service
-	sudo systemctl status isuports.service | tail -n 5
+	sudo systemctl restart $(SERVICE_NAME)
+	sudo systemctl status $(SERVICE_NAME) | tail -n 5
 
 restart-nginx:
 	sudo rsync -av ../conf/nginx/ /etc/nginx/
@@ -49,7 +53,7 @@ survey.slowlog:
 # need to customize regexp
 survey.nginx:
 	sudo cat /var/log/nginx/access.log | \
-	alp json --sort=sum -r -m '/api/condition/[0-9a-z\-]+,/api/isu/[0-9a-z\-]+,/isu/[0-9a-z\-]+'| \
+	alp json --sort=sum -r -m $(ALP_REGEXP)| \
 	tee ../survey/nginx/alp_`date +%Y%m%d%H%M%S`.txt
 
 log.init:
