@@ -24,11 +24,11 @@ restart-mysql:
 	sudo systemctl status mysql.service | tail -n 5
 
 init.config:
-	mkdir ../conf
-	mkdir ../conf/nginx
-	mkdir ../conf/mysql
-	mkdir /home/isucon/webapp/conf/nginx/sites-enabled
-	mkdir /home/isucon/webapp/conf/mysql/conf.d
+	mkdir -p ../conf
+	mkdir -p ../conf/nginx
+	mkdir -p ../conf/mysql
+	mkdir -p /home/isucon/webapp/conf/nginx/sites-enabled
+	mkdir -p /home/isucon/webapp/conf/mysql/conf.d
 	cp /etc/nginx/nginx.conf /home/isucon/webapp/conf/nginx/nginx.conf
 	cp /etc/nginx/sites-enabled/* /home/isucon/webapp/conf/nginx/sites-enabled/
 	cp /etc/mysql/conf.d/*.cnf /home/isucon/webapp/conf/mysql/conf.d/
@@ -59,9 +59,9 @@ survey.nginx:
 log.init:
 	sudo touch /var/log/mysql/mysql-slow.log
 	sudo touch /var/log/nginx/access.log
-	mkdir ../survey
-	mkdir ../survey/slowlog
-	mkdir ../survey/nginx
+	mkdir -p ../survey
+	mkdir -p ../survey/slowlog
+	mkdir -p ../survey/nginx
 
 
 log.rotate:
