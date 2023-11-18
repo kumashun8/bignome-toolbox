@@ -86,3 +86,13 @@ mv <private_repo> webapp
 
 - `make restart` でサーバーを再起動する
 - `make survey` でベンチの結果が取れることを確認する
+
+## 便利コマンド集
+
+どんどん追加しよう
+
+```bash
+# PR作成
+gh pr create --fill
+
+```
