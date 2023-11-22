@@ -29,11 +29,15 @@ Host isucon-2023-X
 
 当日のマニュアルに従って、ベンチを動かしておく。
 
+**🚨 実行結果を揃える意味でも、ベンチの実行コマンドを作業用docの先頭に書いておく!!**
+
 ### 1台目のサーバーに接続して、初期化を行う
 
 path/to/webapp/go なディレクトリ構成な前提。
 
 VS CodeのRemote SSHで接続して、go ディレクトリ内のMakefileに本repoのMakefileをコピーする
+
+**🚨 Makefile内のSERVICE_NAMEを実際の値に書き換える!!**
 
 ```bash
 export GIT_HUB_USER_EMAIL=<your email>
@@ -72,7 +76,7 @@ git push -u origin main
 
 1台目からpushしたリポジトリをcloneする。
 
-**cloneすると.gitconfigで指定されたファイルが消えてしまい初期化などに失敗する可能性があるので、バックアップからよしなに復元すること!**
+**🚨 cloneすると.gitconfigで指定されたファイルが消えてしまい初期化などに失敗する可能性があるので、バックアップからよしなに復元すること!**
 
 ```bash
 cd path/to/webapp
