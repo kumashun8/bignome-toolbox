@@ -27,12 +27,12 @@ init.config:
 	mkdir -p ../conf
 	mkdir -p ../conf/nginx
 	mkdir -p ../conf/mysql
-	mkdir -p /home/isucon/webapp/conf/nginx/sites-enabled
-	mkdir -p /home/isucon/webapp/conf/mysql/conf.d
-	cp /etc/nginx/nginx.conf /home/isucon/webapp/conf/nginx/nginx.conf
-	cp /etc/nginx/sites-enabled/* /home/isucon/webapp/conf/nginx/sites-enabled/
-	cp /etc/mysql/conf.d/*.cnf /home/isucon/webapp/conf/mysql/conf.d/
-	cp /etc/mysql/conf.d/*.cnf /home/isucon/webapp/conf/mysql/conf.d/
+	mkdir -p ../conf/nginx/sites-enabled
+	mkdir -p ../conf/mysql/conf.d
+	cp /etc/nginx/nginx.conf ../conf/nginx/nginx.conf
+	cp /etc/nginx/sites-enabled/* ../conf/nginx/sites-enabled/
+	cp /etc/mysql/conf.d/*.cnf ../conf/mysql/conf.d/
+	cp /etc/mysql/conf.d/*.cnf ../conf/mysql/conf.d/
 
 init.asdf:
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
