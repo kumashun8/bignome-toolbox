@@ -84,6 +84,15 @@ config.git:
 	git config --global core.editor vim
 	git config -l
 
+tail.mysql:
+	sudo tail -f /var/log/mysql/mysql-slow.log
+
+tail.nginx:
+	sudo tail -f /var/log/nginx/access.log
+
+tail.app:
+	sudo journalctl -u $(SERVICE_NAME) -f
+
 # mysql slow-log
 #
 # slow_query_log = 1
