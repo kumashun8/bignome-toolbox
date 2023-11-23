@@ -7,9 +7,12 @@ isucon用のツール群まとめ
 ### isuconユーザーでログインできるようにする
 
 ```bash
+# isuconユーザーで.sshディレクトリを作成
+sudo su - isucon
+mkdir -p .ssh
+
 # ssh keyのisuconユーザへの登録
 sudo cp /home/ubuntu/.ssh/authorized_keys  /home/isucon/.ssh/authorized_keys
-
 sudo chown isucon:isucon /home/isucon/.ssh/authorized_keys
 
 # public ipの確認
