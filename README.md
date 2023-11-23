@@ -43,14 +43,22 @@ VS CodeのRemote SSHで接続して、go ディレクトリ内のMakefileに本r
 **🚨 Makefile内のSERVICE_NAMEを実際の値に書き換える!!**
 
 ```bash
+# git の初期設定
 export GIT_HUB_USER_EMAIL=<your email>
 export GIT_HUB_USER_NAME=<your name>
+config.git
+# ref: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
+curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+&& sudo apt update \
+&& sudo apt install gh -y
 
 # 念のためバックアップ
 cp rf path/to/webapp path/to/webapp_bak
 
 cd path/to/go
-make init.git
 make init.config init.asdf
 # ASDF_DIRSがなんたらエラーで落ちたら
 . ~/.bashrc
