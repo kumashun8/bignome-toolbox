@@ -89,10 +89,10 @@ init.git:
 	gh auth login
 	ssh -T git@github.com
 
-# e.g. GIT_HUB_USER_EMAIL=test@test.com GIT_HUB_USER_ID=test make config.git
+# e.g. GIT_HUB_USER_EMAIL=test@test.com GIT_HUB_USER_NAME=test make config.git
 config.git:
 	git config --global user.email $$GIT_HUB_USER_EMAIL
-	git config --global user.name $$GIT_HUB_USER_ID
+	git config --global user.name $$GIT_HUB_USER_NAME
 	git config --global core.editor vim
 	git config -l
 
