@@ -32,7 +32,6 @@ init.config:
 	cp /etc/nginx/nginx.conf ../conf/nginx/nginx.conf
 	cp /etc/nginx/sites-enabled/* ../conf/nginx/sites-enabled/
 	cp /etc/mysql/conf.d/*.cnf ../conf/mysql/conf.d/
-	cp /etc/mysql/conf.d/*.cnf ../conf/mysql/conf.d/
 
 init.asdf:
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
