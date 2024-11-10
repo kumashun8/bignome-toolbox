@@ -47,7 +47,7 @@ VS CodeのRemote SSHで接続して、go ディレクトリ内のMakefileに本r
 export GIT_HUB_USER_EMAIL=<your email>
 export GIT_HUB_USER_NAME=<your name>
 config.git
-# ref: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
+# gh cli をインストール ref: https://github.com/cli/cli/blob/trunk/docs/install_linux.md
 type -p curl >/dev/null || (sudo apt update && sudo apt install curl -y)
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
 && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
@@ -58,7 +58,7 @@ gh auth login
 ssh -T git@github.com
 
 # 念のためバックアップ
-cp rf path/to/webapp path/to/webapp_bak
+cp -prf path/to/webapp path/to/webapp_bak
 
 cd path/to/go
 make init.config init.asdf
