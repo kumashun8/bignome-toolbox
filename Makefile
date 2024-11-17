@@ -35,7 +35,7 @@ init.config:
 
 init.asdf:
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-	echo '. "/home/isucon/.asdf/asdf.sh"' > ~/.bashrc
+	echo '. "$HOME/.asdf/asdf.sh"' > ~/.bashrc
 	. ~/.bashrc
 
 init.tools:
