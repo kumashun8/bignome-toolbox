@@ -35,8 +35,9 @@ init.config:
 
 init.asdf:
 	git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-	echo '. "$(HOME)/.asdf/asdf.sh"' > ~/.bashrc
+	echo '. "${HOME}/.asdf/asdf.sh"' > ~/.bashrc
 	. ~/.bashrc
+	asdf version
 
 init.tools:
 	sudo apt update
@@ -44,6 +45,8 @@ init.tools:
 	asdf plugin add alp
 	asdf install alp `asdf list-all alp | tail -1`
 	asdf global alp `asdf list-all alp | tail -1`
+	pt-query-digest --version
+	alp --version
 
 survey.slowlog:
 	sudo pt-query-digest /var/log/mysql/mysql-slow.log | \

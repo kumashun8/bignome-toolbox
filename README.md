@@ -61,9 +61,7 @@ ssh -T git@github.com
 cp -prf path/to/webapp path/to/webapp_bak
 
 cd path/to/go
-make init.config
-make init.asdf
-make init.tools log.init
+make init
 ```
 
 その後
