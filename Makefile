@@ -67,10 +67,10 @@ log.init:
 
 
 log.rotate:
-	sudo mv /var/log/mysql/mysql-slow.log /var/log/mysql/mysql-slow.log.`date +%Y%m%d%H%M%S`
+	sudo rm /var/log/mysql/mysql-slow.log
 	sudo touch /var/log/mysql/mysql-slow.log
 	sudo chmod 777 /var/log/mysql/mysql-slow.log
-	sudo mv /var/log/nginx/access.log /var/log/nginx/access.log.`date +%Y%m%d%H%M%S`
+	sudo rm /var/log/nginx/access.log
 	sudo touch /var/log/nginx/access.log
 
 clean.all: clean.log
