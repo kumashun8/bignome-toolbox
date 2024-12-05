@@ -96,6 +96,9 @@ tail.nginx:
 tail.app:
 	sudo journalctl -u $(SERVICE_NAME) -f
 
+tail.error:
+	sudo journalctl -u $(SERVICE_NAME) -f | grep ERROR
+
 # mysql slow-log
 #
 # slow_query_log = 1
